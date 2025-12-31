@@ -1,3 +1,5 @@
+import random
+
 from django.http import JsonResponse
 from django.shortcuts import render
 from core.models import Events
@@ -25,5 +27,7 @@ def all_events(request):
             'id': event.id,
             'start': event.start.strftime("%m/%d/%Y, %H:%M:%S"),
             'end': event.end.strftime("%m/%d/%Y, %H:%M:%S"),
+            "color": "#" + "".join([random.choice("0123456789ABCDEF") for _ in range(6)])
         })
+    # print(out)
     return JsonResponse(out, safe=False)
