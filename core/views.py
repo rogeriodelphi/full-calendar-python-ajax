@@ -53,3 +53,10 @@ def update_event(request):
     event.save()
     data = {}
     return JsonResponse(data)
+
+def remove_event(request):
+    id = request.GET.get("id", None)
+    event = Events.objects.get(id=id)
+    event.delete()
+    data = {}
+    return JsonResponse(data)
