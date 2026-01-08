@@ -6,4 +6,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('all_events/', views.all_events, name='all_events'),
+    path('add_event/', views.add_event, name='add_event'),
+    path('update_event/', views.update_event, name='update_event'),
 ]
